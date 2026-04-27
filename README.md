@@ -7,6 +7,10 @@ Ce dépôt présente une étude comparative de deux métaheuristiques d'optimisa
 
 Ce projet personnel peut etre compris et execute facilement par une personne externe. L'objectif est de **reproduire des experiences**, **comparer les performances des algorithmes** et **generer automatiquement des resultats exploitables** sous forme de tableaux, historiques et graphiques.
 
+## Repository
+
+- GitHub: [youssef-aitelourf/spring-optimization-pso-vs-de-tp03](https://github.com/youssef-aitelourf/spring-optimization-pso-vs-de-tp03)
+
 ## Aperçu rapide
 
 En lançant le pipeline principal, le projet :
@@ -33,13 +37,12 @@ Cette logique est centralisée dans `problem.py`.
 
 - Python `3.11+` recommandé
 - `pip`
-- optionnel : `python-docx` si vous souhaitez régénérer le rapport Word
 
 ## Installation
 
 ```bash
-git clone <url-du-depot>
-cd <nom-du-depot>
+git clone https://github.com/youssef-aitelourf/spring-optimization-pso-vs-de-tp03.git
+cd spring-optimization-pso-vs-de-tp03
 
 python -m venv .venv
 source .venv/bin/activate      # Linux/macOS
@@ -95,51 +98,57 @@ python main.py \
 
 Le dossier de sortie contient typiquement :
 
-| Fichier | Description |
-|---------|-------------|
+
+| Fichier                                 | Description                                                  |
+| --------------------------------------- | ------------------------------------------------------------ |
 | `runs_history.csv` / `runs_history.pkl` | Historique complet par run, itération, budget et indicateurs |
-| `final_statistics.csv` | Résumé statistique final par algorithme |
-| `budget_comparability.csv` | Vérification de la comparabilité des budgets d'évaluation |
-| `convergence_profile.csv` | Profil de convergence normalisé |
-| `tp1_comparison.csv` | Comparaison avec une valeur de reference externe |
-| `convergence_pso_vs_de.png` | Courbes de convergence comparées |
-| `boxplot_final_costs.png` | Distribution finale des coûts |
-| `violin_final_costs.png` | Visualisation fine des distributions finales |
-| `diversity_evolution.png` | Évolution de la diversité des populations |
-| `best_run_convergence.png` | Courbe du meilleur run pour chaque algorithme |
-| `feasibility_rate.png` | Taux de solutions faisables au fil du budget |
+| `final_statistics.csv`                  | Résumé statistique final par algorithme                      |
+| `budget_comparability.csv`              | Vérification de la comparabilité des budgets d'évaluation    |
+| `convergence_profile.csv`               | Profil de convergence normalisé                              |
+| `tp1_comparison.csv`                    | Comparaison avec une valeur de reference externe             |
+| `convergence_pso_vs_de.png`             | Courbes de convergence comparées                             |
+| `boxplot_final_costs.png`               | Distribution finale des coûts                                |
+| `violin_final_costs.png`                | Visualisation fine des distributions finales                 |
+| `diversity_evolution.png`               | Évolution de la diversité des populations                    |
+| `best_run_convergence.png`              | Courbe du meilleur run pour chaque algorithme                |
+| `feasibility_rate.png`                  | Taux de solutions faisables au fil du budget                 |
+
 
 ## Paramètres utiles
 
-| Paramètre | Description | Défaut |
-|-----------|-------------|--------|
-| `--runs` | Nombre de runs Monte-Carlo par algorithme | `50` |
-| `--max-iter` | Nombre maximal d'itérations | `800` |
-| `--stagnation-patience` | Arrêt après `N` itérations sans amélioration | `120` |
-| `--stagnation-epsilon` | Amélioration minimale considérée comme significative | `1e-8` |
-| `--seed` | Graine aléatoire de base | `2026` |
-| `--penalty-coeff` | Intensité de la pénalisation des contraintes | `1e6` |
-| `--swarm-size` | Taille de l'essaim PSO | `40` |
-| `--de-population-size` | Taille de la population DE | `40` |
-| `--pso-neighborhood` | Topologie PSO : `ring` ou `global` | `ring` |
-| `--pso-inertia` | Poids d'inertie de PSO | `0.72` |
-| `--pso-c1` | Coefficient cognitif de PSO | `1.49` |
-| `--pso-c2` | Coefficient social de PSO | `1.49` |
-| `--de-f` | Facteur différentiel de DE | `0.7` |
-| `--de-cr` | Taux de croisement de DE | `0.9` |
-| `--tp1-best-cost` | Référence de comparaison externe optionnelle | `None` |
-| `--output-dir` | Dossier dans lequel écrire les résultats | `outputs` |
+
+| Paramètre               | Description                                          | Défaut    |
+| ----------------------- | ---------------------------------------------------- | --------- |
+| `--runs`                | Nombre de runs Monte-Carlo par algorithme            | `50`      |
+| `--max-iter`            | Nombre maximal d'itérations                          | `800`     |
+| `--stagnation-patience` | Arrêt après `N` itérations sans amélioration         | `120`     |
+| `--stagnation-epsilon`  | Amélioration minimale considérée comme significative | `1e-8`    |
+| `--seed`                | Graine aléatoire de base                             | `2026`    |
+| `--penalty-coeff`       | Intensité de la pénalisation des contraintes         | `1e6`     |
+| `--swarm-size`          | Taille de l'essaim PSO                               | `40`      |
+| `--de-population-size`  | Taille de la population DE                           | `40`      |
+| `--pso-neighborhood`    | Topologie PSO : `ring` ou `global`                   | `ring`    |
+| `--pso-inertia`         | Poids d'inertie de PSO                               | `0.72`    |
+| `--pso-c1`              | Coefficient cognitif de PSO                          | `1.49`    |
+| `--pso-c2`              | Coefficient social de PSO                            | `1.49`    |
+| `--de-f`                | Facteur différentiel de DE                           | `0.7`     |
+| `--de-cr`               | Taux de croisement de DE                             | `0.9`     |
+| `--tp1-best-cost`       | Référence de comparaison externe optionnelle         | `None`    |
+| `--output-dir`          | Dossier dans lequel écrire les résultats             | `outputs` |
+
 
 ## Structure du projet
 
-| Fichier | Rôle |
-|---------|------|
-| `main.py` | Point d'entrée CLI et orchestration complète |
-| `problem.py` | Définition du problème, contraintes, bornes et pénalisation |
-| `algorithms.py` | Implémentation de `PSO` et `DE/rand/1/bin` |
-| `experiments.py` | Boucle d'expériences Monte-Carlo et sauvegarde des sorties |
-| `analysis.py` | Calcul des statistiques et génération des figures |
-| `Rapport/generate_report_docx.py` | Generation du document Word final |
+
+| Fichier                           | Rôle                                                        |
+| --------------------------------- | ----------------------------------------------------------- |
+| `main.py`                         | Point d'entrée CLI et orchestration complète                |
+| `problem.py`                      | Définition du problème, contraintes, bornes et pénalisation |
+| `algorithms.py`                   | Implémentation de `PSO` et `DE/rand/1/bin`                  |
+| `experiments.py`                  | Boucle d'expériences Monte-Carlo et sauvegarde des sorties  |
+| `analysis.py`                     | Calcul des statistiques et génération des figures           |
+| `Rapport/generate_report_docx.py` | Generation du document Word final                           |
+
 
 ## Generation du document Word
 
