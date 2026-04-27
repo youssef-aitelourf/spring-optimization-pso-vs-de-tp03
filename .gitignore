@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Outputs (données régénérables)
+outputs*/
+outputs_smoke/
+outputs_test/
+outputs_verify/
+outputs_check/
+
+# Pickle binaires
+*.pkl
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Jupyter
+.ipynb_checkpoints/
+
+## Rapport
+Rapport/
+~$*.docx
+
